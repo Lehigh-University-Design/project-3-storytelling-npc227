@@ -15,6 +15,22 @@ should stack them on top of each other*/
     margin-top: 20%;
   }
 
+  .hpNotebook {
+    width: 400px;
+    height: auto;
+
+    /*notebook being tilted gives it a little bit of an off look in alignment
+    offsetting with margin-left*/
+    margin-left: 4%;
+  }
+
+  .instructionSheet {
+    
+    .image {
+        width: 300px;
+    }
+  }
+
   
 }
 
@@ -27,8 +43,17 @@ since they have more horizontal space*/
     align-items: center;
 
     /*temp gap until I can find better scaling for it*/
-    gap: 200px;
+    gap: 50px;
     display: flex;
     flex-direction: row;
+  }
+
+  .hpNotebook {
+    width: 500px;
+    height: auto;
+
+    /*notebook being tilted gives it a little bit of an off look in alignment
+    offsetting with margin-left*/
+    margin-left: 10%;
   }
 }
