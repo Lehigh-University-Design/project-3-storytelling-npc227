@@ -4,6 +4,11 @@ font-weight: 400;
 font-style: normal;
 */
 
+/*testing stress tracker*/
+#B1{
+  color: blue;
+}
+
 /*Layout for smaller devices
 since homepage has 2 main elements, small devices
 should stack them on top of each other*/
