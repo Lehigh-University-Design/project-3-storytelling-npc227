@@ -4,6 +4,31 @@ font-weight: 400;
 font-style: normal;
 */
 
+/*Generic positioning for page turner*/
+.pageTurnRParent {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.pageTurnLParent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    /*original image right oriented. rather than make a new
+    one, flip the original horizontally*/
+    transform: scaleX(-1);
+
+}
+
+.pageTurn {
+    max-width: 65px;
+    max-height: 65px;
+
+}
+
 /*Instead of hamburger menu, visual novel esque decision
 maker. options displayed in a column, activated on hover of
 an image, all contained within choiceContainer.*/
@@ -69,20 +94,6 @@ until the user is actively looking for them*/
         display: flex;
         justify-content: center;
         margin-top: 13%;
-
-    }
-
-    /*Generic positioning for page turner*/
-    .rightTurnParent {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-    }
-
-    .pageTurnRight {
-        max-width: 65px;
-        max-height: 65px;
 
     }
   
