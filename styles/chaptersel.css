@@ -6,10 +6,18 @@ font-style: normal;
 
 body {
     background-image: url(../styles/images/thinpaper.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "ink-free", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #stressLevel {
-    color: yellowgreen;
+    color: rgb(99, 50, 205);
 }
 
 /*basic hover functionality
@@ -26,3 +34,4 @@ User hovers or clicks, can recieve info on a decision*/
     background-image: url(../styles/images/testfact.png);
     
 }
+
