@@ -14,9 +14,30 @@ function smallStressEvent() {
     let lvl = parseInt(localStorage.getItem("StressLvl"))
     lvl = lvl + 1
     console.log(lvl)
-    localStorage.clear()
+    
+    //the idea is that this will replace the previous iteration...
     localStorage.setItem("StressLvl", lvl)
     return lvl
+}
+
+//function to implement in future: keep track of which chapters have
+//been completed, open access to others based on completion.
+//and only allow ending access if all chapters have been accessed.
+
+function updateCompletion () {
+
+    //start with all completions as false. when final page turn in a 
+    //chapter is selected, set that chapter's completion as true
+
+    //if the completion variables don't exist yet, add them
+    if (localStorage.getItem("ch1Complete") === null) {
+        localStorage.setItem("chap1Complete", "false")
+        localStorage.setItem("chap2Complete", "false")
+        localStorage.setItem("chap3Complete", "false")
+        localStorage.setItem("chap4Complete", "false")
+
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
