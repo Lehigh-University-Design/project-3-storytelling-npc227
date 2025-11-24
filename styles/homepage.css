@@ -9,72 +9,43 @@ font-style: normal;
   color: blue;
 }
 
-/*Layout for smaller devices
-since homepage has 2 main elements, small devices
-should stack them on top of each other*/
-@media (max-width: 450px) {
-  .homepageEls {
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+.homepageEls {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 
-    /*temp gap until I can find better scaling for it*/
-    gap: 100px;
-    display: flex;
-    flex-direction: column;    /* stack image above text */
-    height: 80vh;
-    margin-top: 20%;
+  /*temp gap until I can find better scaling for it*/
+  gap: 100px;
+  display: flex;
+  flex-direction: column;    /* stack image above text */
+  height: 80vh;
+  margin-top: 20%;
 
-    p {
-      position: absolute; top: -1%; left: 13%;
-      font-family: "ink-free", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      line-height: 179%;
-    }
-
+  p {
+    position: absolute;
+    top: -5px;
+    left: 35px;
+    font-family: "ink-free", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 29px;
   }
 
-  .hpNotebook {
-    width: 400px;
-    height: auto;
-
-    /*notebook being tilted gives it a little bit of an off look in alignment
-    offsetting with margin-left*/
-    margin-left: 4%;
-  }
-
-  .instructionSheet {
-    
-    .image {
-        width: 300px;
-    }
-    
-  }
-
-  
 }
 
-/*Bigger screens should have 2 main elements next to each other
-since they have more horizontal space*/
-@media (min-width: 600px) {
-  .homepageEls {
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+.hpNotebook {
+  width: 400px;
+  height: auto;
 
-    /*temp gap until I can find better scaling for it*/
-    gap: 50px;
-    display: flex;
-    flex-direction: row;
+  /*notebook being tilted gives it a little bit of an off look in alignment
+  offsetting with margin-left*/
+  margin-left: 4%;
+}
+
+.instructionSheet {
+  
+  .image {
+      width: 300px;
   }
-
-  .hpNotebook {
-    width: 500px;
-    height: auto;
-
-    /*notebook being tilted gives it a little bit of an off look in alignment
-    offsetting with margin-left*/
-    margin-left: 10%;
-  }
+  
 }
