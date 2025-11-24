@@ -47,6 +47,8 @@ until the user is actively looking for them*/
 
     /*Set background*/
     body {
+        height: 100vh;
+        margin: 0;
         background-image: url(../styles/images/thinpaper.jpg);
         color: black;
         position: relative;
@@ -73,8 +75,8 @@ until the user is actively looking for them*/
     /*Generic positioning for page turner*/
     .rightTurnParent {
         position: absolute;
-        margin-bottom: 0;
-        margin-right: 0;
+        bottom: 0;
+        right: 0;
 
     }
 
