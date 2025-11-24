@@ -4,11 +4,18 @@ font-weight: 400;
 font-style: normal;
 */
 
+/*body height of page*/
+html {
+    height: 100vh;
+}
+
 /*Generic positioning for page turner*/
 .pageTurnRParent {
     position: absolute;
     bottom: 0;
     right: 0;
+    max-width: 65px;
+    max-height: 65px;
 
 }
 
@@ -16,6 +23,8 @@ font-style: normal;
     position: absolute;
     bottom: 0;
     left: 0;
+    max-width: 65px;
+    max-height: 65px;
     
     /*original image right oriented. rather than make a new
     one, flip the original horizontally*/
@@ -72,11 +81,11 @@ until the user is actively looking for them*/
 
     /*Set background*/
     body {
-        height: 100vh;
         margin: 0;
         background-image: url(../styles/images/thinpaper.jpg);
         color: black;
         position: relative;
+        height: 100vh;
 
         /*change color of underline in links if they cannot be removed*/
         a {
