@@ -11,6 +11,7 @@ font-style: normal;
     body {
         background-image: url(../styles/images/thinpaper.jpg);
         color: black;
+        position: relative;
 
         /*change color of underline in links if they cannot be removed*/
         a {
@@ -28,6 +29,20 @@ font-style: normal;
         display: flex;
         justify-content: center;
         margin-top: 13%;
+
+    }
+
+    /*Generic positioning for page turner*/
+    .rightTurnParent {
+        position: absolute;
+        margin-bottom: 0;
+        margin-right: 0;
+
+    }
+
+    .pageTurnRight {
+        max-width: 65px;
+        max-height: 65px;
 
     }
   
