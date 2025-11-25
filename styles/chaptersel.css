@@ -8,7 +8,6 @@ body {
     background-image: url(../styles/images/thinpaper.jpg);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     font-family: "ink-free", sans-serif;
@@ -35,3 +34,19 @@ User hovers or clicks, can recieve info on a decision*/
     
 }
 
+/*Chapter selection container.
+Allow for text to be left aligned within a centered div.
+This section of the css file is to style the chapter links*/
+.chapSelCont {
+    position: relative;
+    max-width: 400px;
+    min-width: 235px;
+    text-align: left;
+    line-height: 26px;
+    margin-top: -18px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

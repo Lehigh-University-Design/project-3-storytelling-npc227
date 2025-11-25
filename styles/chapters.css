@@ -9,6 +9,20 @@ html {
     height: 100vh;
 }
 
+/*use divs to keep content centered, text left aligned*/
+.chapterContent {
+    align-self: center;
+    max-width: 300px;
+    min-width: 150px;
+
+    margin-top: -16px;
+    line-height: 46px;
+
+    p {
+        text-align: left;
+    }
+}
+
 /*Generic positioning for page turner*/
 .pageTurnRParent {
     position: absolute;
@@ -87,12 +101,20 @@ body {
     color: black;
     position: relative;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    /*universal font*/
+    font-family: "ink-free", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     /*change color of underline in links if they cannot be removed*/
     a {
         color: black;
         text-decoration: none;
     }
+
 }
 
 /*centering chapter title*/
