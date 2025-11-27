@@ -57,6 +57,8 @@ maker. options displayed in a column, activated on hover of
 an image, all contained within choiceContainer.*/
 .choiceContainer {
     position: relative;
+    width: 250px;
+    align-self: center;
 
     img {
         position: absolute;
@@ -75,8 +77,6 @@ until the user is actively looking for them*/
 .choiceContent {
     display: none;
     position: absolute;
-    top: 70%;
-    left: 30%;
     background-color: rgb(222, 237, 251);
     border: 3px;
     border-color: rgb(154, 192, 227);
@@ -84,9 +84,9 @@ until the user is actively looking for them*/
 
 /*display choices in a column for easy readability*/
 .choiceContainer:hover .choiceContent {
-    display: block;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 /*have formatting be based on mobile view.
