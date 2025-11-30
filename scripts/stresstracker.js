@@ -50,6 +50,7 @@ function updateJournalText(textKey) {
     //for future access.
     if (localStorage.getItem(textKey) === null) {
         localStorage.setItem("GD1", "made a priority listing of my worst topics, and I studied those first and took breaks between chapters. I'm still a little stressed, but definitely feel better knowing I prepared well.")
+        localStorage.setItem("BD1", "crammed all day. Well, not all day because I ended up on Instagram during my breaks... (which took way too long). I feel worse than when I started honestly, which is especially bad since it's already late at night so I'm tired AND stressed...")
         localStorage.setItem("template", "smile!")
 
         console.log("updated unknown text(s)")
@@ -105,6 +106,28 @@ document.addEventListener('DOMContentLoaded', () => {
         //get the ID of the text to display the decision text / result
         //by updating the text content (decision 1's paragraph text accessed by ID)
         //upon testing this was temporary - would disappear when switched pages. 
+        //add to localstorage for dynamic changing of decision result, and persistence
+        //across page changes
+        const textD1 = document.getElementById("textD1")
+        textD1.textContent = result
+
+        //add text result to localstorage so it will be updated based on
+        //which decision is currently active. will allow persistence between page changes
+        localStorage.setItem("D1Result", result)
+
+    })
+
+    const dec1Bad = document.getElementById("BD1")
+    dec1Bad.addEventListener('click', () => {
+
+        //pass the button ID to updateJournalText
+        //this will return the result text for "Bad Decision 1"
+        console.log("clicked BD1")
+        let result = updateJournalText("BD1")
+        console.log(result)
+
+        //get the ID of the text to display the decision text / result
+        //by updating the text content (decision 1's paragraph text accessed by ID)
         //add to localstorage for dynamic changing of decision result, and persistence
         //across page changes
         const textD1 = document.getElementById("textD1")
