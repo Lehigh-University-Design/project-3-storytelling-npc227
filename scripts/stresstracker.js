@@ -40,9 +40,35 @@ function updateCompletion () {
 
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+//Function to update html text based on decisions made. 
+//keep decision text in localstorage so it can be updated whenever needed!
+function updateJournalText(textKey) {
 
+    console.log("updateFunc reached")
+
+    //if the text has never been sent to local storage, send it
+    //for future access.
+    if (localStorage.getItem(textKey) === null) {
+        localStorage.setItem("GD1", "made a priority listing of my worst topics, and I studied those first and took breaks between chapters. I'm still a little stressed, but definitely feel better knowing I prepared well.")
+        localStorage.setItem("template", "smile!")
+
+        console.log("updated unknown text(s)")
+
+    }
+
+    //return text to be updated to the page
+    let resultText = localStorage.getItem(textKey)
+    return resultText
+
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("test")
+
+    //TESTING 
     //if content loaded, update stress level if found
+    /*
     console.log(localStorage.getItem("StressLvl"))
     let tempNum = localStorage.getItem("StressLvl")
     document.getElementById("stressLevel").innerHTML = parseInt(localStorage.getItem("StressLvl"))
@@ -54,6 +80,33 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(result)
         console.log("clicked")
         
+    })*/
+
+    //Above was testing
+    //Below buttons will be named Bad Good Or Neutral, with
+    //A number designating where it appears in the story. 
+    //(1) For first 2 choices, (2) for next choices, etc.
+
+    //DECISION 1
+    //Deciding between doomscrolling during study cramming. Bad Decision 1 (BD1)
+    //spreading breaks evenly throughout study.  Good Decision 1 (GD1)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    const dec1Good = document.getElementById("GD1")
+    dec1Good.addEventListener('click', () => {
+
+        //pass the button ID to updateJournalText
+        //this will return the result text for "Good Decision 1"
+        console.log("clicked GD1")
+        let result = updateJournalText("GD1")
+        console.log(result)
+
+        //get the ID of the text to display the decision text / result
+        //by updating the text content (decision 1's paragraph text accessed by ID)
+        const textD1 = document.getElementById("textD1")
+        textD1.textContent = result
+
     })
 
 })

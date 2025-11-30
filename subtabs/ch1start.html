@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/chapters.css">
     <link rel="stylesheet" href="https://use.typekit.net/yrt0kfu.css">
-    <script src="stresstracker.js"></script>
+    <script src="../scripts/stresstracker.js" defer></script>
     <title>Chapter 1 Initial Page</title>
 </head>
 <body>
+    <!--Chapter selection-->
     <a href="./chaptersel.html">
         <h1 class="chapTitle">10/17/2024</h1>
     </a>
@@ -27,6 +28,13 @@
             probably just test anxiety, but it doesn’t change that 
             I just feel… horrible. Like, I...
         </p>
+
+        <!--Identify this text as the one to be updated.
+        style it (for margin) based on page spacing-->
+        <p id="textD1" style="margin-top: -16px;">
+            ...
+        </p>
+        
     </div>
 
     <!--pencil doodle indicated decision to be made.
@@ -36,8 +44,8 @@
         <img src="../styles/images/decisionpencil.png">
 
         <div class="choiceContent">
-            <button>studied for a long time today, but I definitely took breaks.</button>
-            <button>ended up doomscrolling in between cramming.</button>
+            <button id="GD1">studied for a long time today, but I definitely took breaks.</button>
+            <button id="BD1">ended up doomscrolling in between cramming.</button>
 
         </div>
     </div>
