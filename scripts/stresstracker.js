@@ -51,6 +51,8 @@ function updateJournalText(textKey) {
     if (localStorage.getItem(textKey) === null) {
         localStorage.setItem("GD1", "made a priority listing of my worst topics, and I studied those first and took breaks between chapters. I'm still a little stressed, but definitely feel better knowing I prepared well.")
         localStorage.setItem("BD1", "crammed all day. Well, not all day because I ended up on Instagram during my breaks... (which took way too long). I feel worse than when I started honestly, which is especially bad since it's already late at night so I'm tired AND stressed...")
+        localStorage.setItem("GD2", "I definitely could have done better if I had remembered about the quiz beforehand. But I was able to pay attention to the new material in class, so the next quiz will go better... that's good at least.")
+        localStorage.setItem("BD2", "I couldn't focus on cramming since the professor was teaching new material. That quiz was literally the worst... I just want to go take a nap.")
         localStorage.setItem("template", "smile!")
 
         console.log("updated unknown text(s)")
@@ -94,52 +96,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //get decision button by it's ID, add event listener for click
     //when clicked, update the text for that page with the result of the decision.
+    
     const dec1Good = document.getElementById("GD1")
-    dec1Good.addEventListener('click', () => {
+    if (dec1Good !== null) {
+        dec1Good.addEventListener('click', () => {
 
-        //pass the button ID to updateJournalText
-        //this will return the result text for "Good Decision 1"
-        console.log("clicked GD1")
-        let result = updateJournalText("GD1")
-        console.log(result)
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 1"
+            console.log("clicked GD1")
+            let result = updateJournalText("GD1")
+            console.log(result)
 
-        //get the ID of the text to display the decision text / result
-        //by updating the text content (decision 1's paragraph text accessed by ID)
-        //upon testing this was temporary - would disappear when switched pages. 
-        //add to localstorage for dynamic changing of decision result, and persistence
-        //across page changes
-        const textD1 = document.getElementById("textD1")
-        textD1.textContent = result
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 1's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD1 = document.getElementById("textD1")
+            textD1.textContent = result
 
-        //add text result to localstorage so it will be updated based on
-        //which decision is currently active. will allow persistence between page changes
-        localStorage.setItem("D1Result", result)
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D1Result", result)
 
-    })
+        })
+    }
 
     const dec1Bad = document.getElementById("BD1")
-    dec1Bad.addEventListener('click', () => {
+    if (dec1Bad !== null) {
+        dec1Bad.addEventListener('click', () => {
 
-        //pass the button ID to updateJournalText
-        //this will return the result text for "Bad Decision 1"
-        console.log("clicked BD1")
-        let result = updateJournalText("BD1")
-        console.log(result)
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 1"
+            console.log("clicked BD1")
+            let result = updateJournalText("BD1")
+            console.log(result)
 
-        //get the ID of the text to display the decision text / result
-        //by updating the text content (decision 1's paragraph text accessed by ID)
-        //add to localstorage for dynamic changing of decision result, and persistence
-        //across page changes
-        const textD1 = document.getElementById("textD1")
-        textD1.textContent = result
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 1's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD1 = document.getElementById("textD1")
+            textD1.textContent = result
 
-        //add text result to localstorage so it will be updated based on
-        //which decision is currently active. will allow persistence between page changes
-        localStorage.setItem("D1Result", result)
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D1Result", result)
 
-    })
+        })
+    }  
 
     //update the text of Decision 1 based on what decision is currently chosen
-    document.getElementById("textD1").textContent = localStorage.getItem("D1Result")
+    const dec1Text = document.getElementById("textD1")
+    if (dec1Text !== null) {
+        dec1Text.textContent = localStorage.getItem("D1Result")
+
+    }
+
+    //DECISION 2
+    //Deciding between studying during class. Bad Decision 2 (BD2)
+    //studying before class.  Good Decision 2 (GD2)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    const dec2Good = document.getElementById("GD2")
+    if (dec2Good !== null) {
+        dec2Good.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 2"
+            console.log("clicked GD2")
+            let result = updateJournalText("GD2")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 2's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD2 = document.getElementById("textD2")
+            textD2.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D2Result", result)
+
+        })
+    }
+
+    const dec2Bad = document.getElementById("BD2")
+    if (dec2Bad !== null) {
+        dec2Bad.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 2"
+            console.log("clicked BD2")
+            let result = updateJournalText("BD2")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 2's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD1 = document.getElementById("textD2")
+            textD1.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D2Result", result)
+
+        })
+    }
+
+    //update the text of Decision 2 based on what decision is currently chosen
+    const dec2Text = document.getElementById("textD2")
+    if (dec2Text !== null) {
+        dec2Text.textContent = localStorage.getItem("D2Result")
+
+    }
 
 })
