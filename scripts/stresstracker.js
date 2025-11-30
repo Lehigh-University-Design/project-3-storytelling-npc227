@@ -104,9 +104,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //get the ID of the text to display the decision text / result
         //by updating the text content (decision 1's paragraph text accessed by ID)
+        //upon testing this was temporary - would disappear when switched pages. 
+        //add to localstorage for dynamic changing of decision result, and persistence
+        //across page changes
         const textD1 = document.getElementById("textD1")
         textD1.textContent = result
 
+        //add text result to localstorage so it will be updated based on
+        //which decision is currently active. will allow persistence between page changes
+        localStorage.setItem("D1Result", result)
+
     })
+
+    //update the text of Decision 1 based on what decision is currently chosen
+    document.getElementById("textD1").textContent = localStorage.getItem("D1Result")
 
 })
