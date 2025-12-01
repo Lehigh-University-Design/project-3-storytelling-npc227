@@ -53,6 +53,8 @@ function updateJournalText(textKey) {
         localStorage.setItem("BD1", "crammed all day. Well, not all day because I ended up on Instagram during my breaks... (which took way too long). I feel worse than when I started honestly, which is especially bad since it's already late at night so I'm tired AND stressed...")
         localStorage.setItem("GD2", "I definitely could have done better if I had remembered about the quiz beforehand. But I was able to pay attention to the new material in class, so the next quiz will go better... that's good at least.")
         localStorage.setItem("BD2", "I couldn't focus on cramming since the professor was teaching new material. That quiz was literally the worst... I just want to go take a nap.")
+        localStorage.setItem("GD3", "Ultimately I decided to go since I haven't seen these friends in a hot minute. It was nice to catch up with them, even if I didn't stay for long. Lila mentioned her birthday was coming up, so that's something to look forward to! I'm definitely feeling a lot better.")
+        localStorage.setItem("BD3", "I didn't end up going and stayed in to study. It was genuinely such a lonely night, I don't have much to write about... but Lila's birthday is coming up at least... I need to finish this break and get back to studying. It's already so late and I'm so tired...")
         localStorage.setItem("template", "smile!")
 
         console.log("updated unknown text(s)")
@@ -212,6 +214,68 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec2Text = document.getElementById("textD2")
     if (dec2Text !== null) {
         dec2Text.textContent = localStorage.getItem("D2Result")
+
+    }
+
+    //DECISION 3
+    //Deciding between studying during class. Bad Decision 3 (BD3)
+    //studying before class.  Good Decision 3 (GD3)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    const dec3Good = document.getElementById("GD3")
+    if (dec3Good !== null) {
+        dec3Good.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 3"
+            console.log("clicked GD3")
+            let result = updateJournalText("GD3")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 3's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD3 = document.getElementById("textD3")
+            textD3.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D2Result", result)
+
+        })
+    }
+
+    const dec3Bad = document.getElementById("BD3")
+    if (dec3Bad !== null) {
+        dec3Bad.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 3"
+            console.log("clicked BD3")
+            let result = updateJournalText("BD3")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 3's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD3 = document.getElementById("textD3")
+            textD3.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D3Result", result)
+
+        })
+    }
+
+    //update the text of Decision 2 based on what decision is currently chosen
+    const dec3Text = document.getElementById("textD3")
+    if (dec3Text !== null) {
+        dec3Text.textContent = localStorage.getItem("D3Result")
 
     }
 
