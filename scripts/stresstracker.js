@@ -111,6 +111,25 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem("StressLvl", 0)
     }
 
+    //creating elements in local storage to track if decisions have been made.
+    //aka = only allow one click of a button per pencil
+    //achieve by checking DecXMade === "false", if so, make true and update text content
+    //else, return/exit. don't update any text/stress factor
+
+    //if they have not been initialized upon loading, initialize them.
+    if (localStorage.getItem("dec1Made") === null) {
+        localStorage.setItem("dec1Made", "false")
+        localStorage.setItem("dec2Made", "false")
+        localStorage.setItem("dec3Made", "false")
+        localStorage.setItem("dec4Made", "false")
+        localStorage.setItem("dec5Made", "false")
+        localStorage.setItem("dec6Made", "false")
+        localStorage.setItem("dec7Made", "false")
+        localStorage.setItem("dec8Made", "false")
+        localStorage.setItem("dec9Made", "false")
+        localStorage.setItem("dec10Made", "false")
+    }
+
     //include eraser on chapter selection screen. allows you to reset choices.
     const eraser = document.getElementById("resetChoices")
     if (eraser) {
@@ -221,11 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (num < -3) {
             stressMeter.src = "yipee.png"
 
-        } else if (-3 <= num <= 3 ) {
+        } else if (-3 <= num && num <= 3 ) {
             stressMeter.src = "A-Ok.png"
             
-        } else if (num > 3) {
-            stressMeter.src = "urgh.png"
+        } else {
+            console.log(num)
+            stressMeter.src = "sadface.png"
+            console.log(num)
 
         }
 
@@ -279,6 +300,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec1Good !== null) {
         dec1Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec1Made") === "true") {
+                return
+
+            }
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 1"
             console.log("clicked GD1")
@@ -301,12 +329,23 @@ document.addEventListener('DOMContentLoaded', () => {
             let tempLvl = smallStressEventMINUS()
             console.log(tempLvl)
 
+            //now that all decision functionality is over, update 
+            //dec1Made = true
+            localStorage.setItem("dec1Made", "true")
+
         })
     }
 
     const dec1Bad = document.getElementById("BD1")
     if (dec1Bad !== null) {
         dec1Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec1Made") === "true") {
+                return
+
+            }
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 1"
@@ -328,6 +367,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //assign the appropriate amount of stress
             let tempLvl = smallStressEvent()
             console.log(tempLvl)
+
+            //now that all decision functionality is over, update 
+            //dec1Made = true
+            localStorage.setItem("dec1Made", "true")
 
         })
     }  

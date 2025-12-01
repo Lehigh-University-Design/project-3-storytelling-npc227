@@ -76,6 +76,7 @@ until the user is actively looking for them*/
 .choiceContent {
     display: none;
     position: absolute;
+    margin-top: 33px;
     background-color: rgb(222, 237, 251);
     border: 3px;
     border-color: rgb(154, 192, 227);
