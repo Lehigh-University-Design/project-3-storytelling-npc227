@@ -162,12 +162,15 @@ User hovers or clicks, can recieve info on a decision*/
     width: 200px;
     height: 200px;
     background-image: url(../subtabs/ch2/sleepytime.png);
-    transition: background-image 0.5s ease-in-out;  
+    transition: background-image 0.5s ease-in-out; 
+    margin-top: 50px; 
+    margin-left: 100px;
 
 }
 
 .sleepSticker:hover {
     background-image: url(../subtabs/ch2/bed.png)
+
     
 }
 
