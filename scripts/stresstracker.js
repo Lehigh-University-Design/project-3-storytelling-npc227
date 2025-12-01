@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
-            localStorage.setItem("D2Result", result)
+            localStorage.setItem("D3Result", result)
 
             //assign the appropriate amount of stress
             let tempLvl = smallStressEventMINUS()
