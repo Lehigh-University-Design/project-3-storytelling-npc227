@@ -20,26 +20,6 @@ function smallStressEvent() {
     return lvl
 }
 
-//function to implement in future: keep track of which chapters have
-//been completed, open access to others based on completion.
-//and only allow ending access if all chapters have been accessed.
-
-function updateCompletion () {
-
-    //start with all completions as false. when final page turn in a 
-    //chapter is selected, set that chapter's completion as true
-
-    //if the completion variables don't exist yet, add them
-    if (localStorage.getItem("ch1Complete") === null) {
-        localStorage.setItem("chap1Complete", "false")
-        localStorage.setItem("chap2Complete", "false")
-        localStorage.setItem("chap3Complete", "false")
-        localStorage.setItem("chap4Complete", "false")
-
-    }
-
-}
-
 //Function to update html text based on decisions made. 
 //keep decision text in localstorage so it can be updated whenever needed!
 function updateJournalText(textKey) {
@@ -70,6 +50,60 @@ function updateJournalText(textKey) {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("test")
+
+    //start with all completions as false. when final page turn in a 
+    //chapter is selected, set that chapter's completion as true
+
+    //initialize chapter complete variables.
+    //the last decision of every chapter will set the variable true. 
+    if (localStorage.getItem("test") === null) {
+        localStorage.setItem("test", "this is just to set up the chapter complete metrics in your local storage if the page is loaded and it doesn't exist yet")
+        localStorage.setItem("chap1Complete", "false")
+        localStorage.setItem("chap2Complete", "false")
+        localStorage.setItem("chap3Complete", "false")
+        localStorage.setItem("chap4Complete", "false")
+
+    }
+
+    //functions to check last page of chapters.
+    //get the element by id of the last page flip in a chapter.
+    //when clicked, set that chapter's completion as "true."
+    const ch1Finished = document.getElementById("LASTPAGECH1")
+    if (ch1Finished) {
+
+        //only set chapter one complete once you have exited the page.
+        ch1Finished.addEventListener('click', () => {
+            localStorage.setItem("chap1Complete", "true")
+
+        })
+
+    }
+
+    //if a chapter has been completed, unlock the following one on the ch selection page.
+    //this will be done by changing the styling of the links from "none" to "block" 
+    //so they are visible on the page
+
+    //Each one checks to see if the element is on the page and if the prereq chapter has been completed.
+    //if both exist / are true, then allow the chapter link to appear.
+    const activateCh2 = document.getElementById("isCh1Complete")
+    if (activateCh2 && (localStorage.getItem("chap1Complete") === "true")) {
+        activateCh2.style.display = "block"
+    }
+
+    const activateCh3 = document.getElementById("isCh2Complete")
+    if (activateCh3 && (localStorage.getItem("chap2Complete") === "true")) {
+        activateCh3.style.display = "block"
+    }
+
+    const activateCh4 = document.getElementById("isCh3Complete")
+    if (activateCh4 && (localStorage.getItem("chap3Complete") === "true")) {
+        activateCh4.style.display = "block"
+    }
+
+    const activateEnding = document.getElementById("isCh4Complete")
+    if (activateEnding && (localStorage.getItem("chap4Complete") === "true")) {
+        activateEnding.style.display = "block"
+    }
 
     //TESTING 
     //if content loaded, update stress level if found
@@ -272,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    //update the text of Decision 2 based on what decision is currently chosen
+    //update the text of Decision 3 based on what decision is currently chosen
     const dec3Text = document.getElementById("textD3")
     if (dec3Text !== null) {
         dec3Text.textContent = localStorage.getItem("D3Result")
