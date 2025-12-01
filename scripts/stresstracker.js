@@ -42,6 +42,11 @@ function updateJournalText(textKey) {
         localStorage.setItem("BD5", "I studied a little bit. Mostly I walked around a bit... but I found myself in the pits of Instagram Reels more than once (for a few hours at a time... sorry...). I didn't get much sleep because of that... now I feel guilty AND tired.")
         localStorage.setItem("GD6", "They agreed to keep it down when I asked. I can still hear them a little bit from my room, but it's definitely better. I appreciate that they're trying...")
         localStorage.setItem("BD6", "I accidentally snapped at them. I feel so bad. I really didn't mean to. I... I feel so so so so bad. I can't even think about this right now... I'm going to bed. I hope they're not too mad at me.")
+        localStorage.setItem("GD7", "If I put my energy into a few dedicated applications and make sure my portfolio and cover letter show my passion, I'm sure I'll be okay. It's just a little scary to think about putting fewer eggs in a basket, even if they're... better? eggs?")
+        localStorage.setItem("ND7", "Not all companies post open job listings all the time. Also, if I email companies near me, it'll be easier to arrange work conditions. That's something to consider... might be more realistic. But what if they never see it?")
+        localStorage.setItem("BD7", "I feel like I should be applying to everything possible. The more spaghetti I throw at the wall, the more will stick, right? Right? I don't want to spread myself too thin, but I NEED to do this...")
+        localStorage.setItem("GD8", "If I pursue my passions, I don't know if I'll be able to support myself. But I don't want to hate my job for the next 50 years. There's probably a balance to be struck between being realistic and idealistic about it.")
+        localStorage.setItem("BD8", "Sometimes I feel like I'll need to take a soul sucking but stable job. Build up my savings. I don't particularly like that idea... it makes me sad to think about.")
         localStorage.setItem("template", "smile!")
 
         console.log("updated unknown text(s)")
@@ -92,6 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
         //only set chapter complete once you have exited the page.
         ch2Finished.addEventListener('click', () => {
             localStorage.setItem("chap2Complete", "true")
+
+        })
+
+    }
+
+    const ch3Finished = document.getElementById("LASTPAGECH3")
+    if (ch3Finished) {
+
+        //only set chapter complete once you have exited the page.
+        ch3Finished.addEventListener('click', () => {
+            localStorage.setItem("chap3Complete", "true")
 
         })
 
@@ -542,6 +558,157 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec6Text = document.getElementById("textD6")
     if (dec6Text !== null) {
         dec6Text.textContent = localStorage.getItem("D6Result")
+
+    }
+
+    //DECISION 7
+    //Deciding between applying to all possible job apps. Bad Decision 7 (BD7)
+    //make a few very high quality apps Good Decision 7 (GD7)
+    //cold apply to nearby companies Neutral Decision 7 (ND7)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    
+    const dec7Good = document.getElementById("GD7")
+    if (dec7Good !== null) {
+        dec7Good.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 7"
+            console.log("clicked GD7")
+            let result = updateJournalText("GD7")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 7's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD7 = document.getElementById("textD7")
+            textD7.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D7Result", result)
+
+        })
+    }
+
+    const dec7Neutral = document.getElementById("ND7")
+    if (dec7Neutral !== null) {
+        dec7Neutral.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 7"
+            console.log("clicked ND7")
+            let result = updateJournalText("ND7")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 7's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD7 = document.getElementById("textD7")
+            textD7.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D7Result", result)
+
+        })
+    }
+    
+    const dec7Bad = document.getElementById("BD7")
+    if (dec7Bad !== null) {
+        dec7Bad.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 7"
+            console.log("clicked BD7")
+            let result = updateJournalText("BD7")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 7's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD7 = document.getElementById("textD7")
+            textD7.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D7Result", result)
+
+        })
+    }
+
+    //update the text of Decision 7 based on what decision is currently chosen
+    const dec7Text = document.getElementById("textD7")
+    if (dec7Text !== null) {
+        dec7Text.textContent = localStorage.getItem("D7Result")
+
+    }
+
+    //DECISION 8
+    //thinking about living in a soulless job. Bad Decision 8 (BD8)
+    //you can do both at once! think about it.  Good Decision 8 (GD8)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    
+    const dec8Good = document.getElementById("GD8")
+    if (dec8Good !== null) {
+        dec8Good.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 8"
+            console.log("clicked GD8")
+            let result = updateJournalText("GD8")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 8's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD8 = document.getElementById("textD8")
+            textD8.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D8Result", result)
+
+        })
+    }
+
+    const dec8Bad = document.getElementById("BD8")
+    if (dec8Bad !== null) {
+        dec8Bad.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 8"
+            console.log("clicked BD8")
+            let result = updateJournalText("BD8")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 8's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD8 = document.getElementById("textD8")
+            textD8.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D8Result", result)
+
+        })
+    }  
+
+    //update the text of Decision 8 based on what decision is currently chosen
+    const dec8Text = document.getElementById("textD8")
+    if (dec8Text !== null) {
+        dec8Text.textContent = localStorage.getItem("D8Result")
 
     }
 

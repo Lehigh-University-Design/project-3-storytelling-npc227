@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/chapters.css">
+    <link rel="stylesheet" href="https://use.typekit.net/yrt0kfu.css">
+    <script src="../scripts/stresstracker.js" defer></script>
+    <title>Ch3 Initial Page</title>
 </head>
 <body>
-    <h1>ch3 temp</h1>
+
+    <!--Chapter selection-->
+    <a href="../chaptersel.html">
+        <h1 class="chapTitle">10/31/2024</h1>
+    </a>
+
+    <!--Page turn images-->
+    <a class="pageTurnLParent" href="./ch2/cpg2.html">
+        <img src="../styles/images/pageturn.png" class="pageTurn">
+    </a>
+
+    <a class="pageTurnRParent" href="./ch3/cpg1.html">
+        <img src="../styles/images/pageturn.png" class="pageTurn">
+    </a>
+
+    <!--Start to page's content!-->
+    <div class="chapterContent">
+        <p>
+            It's Halloween! And the scariest thing I'll encounter today is the prospect of my summer plans. All of my friends are getting opportunities left and right, and I have heard back from exactly
+            one internship, and it was NOT an acceptance. Tonight I want to have fun, but I need a plan for tomorrow / the coming months.
+        </p>
+
+        <!--Identify this text as the one to be updated.
+        style it (for margin) based on page spacing-->
+        <p id="textD7" style="margin-top: -16px;">
+            ...
+        </p>
+        
+    </div>
+
+    <!--pencil doodle indicated decision to be made.
+    Use buttons for decisions to allow recording of decisions
+    and changing of future content based on JS var/stress level-->
+    <div class="choiceContainer">
+        <img src="../../styles/images/decisionpencil.png">
+
+        <div class="choiceContent">
+            <button id="GD7">focus energy on a few specific applications, create strong portfolio & cover letter</button>
+            <button id="BD7">apply to all possible positions that pop up on job search apps</button>
+            <button id="ND7">cold email nearby companies in preferred industries</button>
+
+        </div>
+    </div>
+    
 </body>
 </html>
