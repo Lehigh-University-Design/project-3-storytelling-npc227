@@ -50,3 +50,22 @@ a {
     text-decoration: none;
     color: black;
 }
+
+
+/*including the following code from chapters.css to style paragraph
+and explanation text in chapter selection screen*/
+
+/*keeps alignment of elements consistent.*/
+.chapterContent {
+    align-self: center;
+    max-width: 300px;
+    min-width: 150px;
+    margin-top: -16px;
+    line-height: 46px;
+    position: relative;
+
+    p {
+        text-align: left;
+    }
+
+}

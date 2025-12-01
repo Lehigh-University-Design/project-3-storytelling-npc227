@@ -20,6 +20,8 @@ function smallStressEvent() {
     return lvl
 }
 
+//
+
 //Function to update html text based on decisions made. 
 //keep decision text in localstorage so it can be updated whenever needed!
 function updateJournalText(textKey) {
@@ -65,7 +67,19 @@ function updateJournalText(textKey) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
     console.log("test")
+
+    //include eraser on chapter selection screen. allows you to reset choices.
+    const eraser = document.getElementById("resetChoices")
+    if (eraser) {
+
+        eraser.addEventListener('click', () => {
+            localStorage.clear()
+
+        })
+        
+    }
     
     //start with all completions as false. when final page turn in a 
     //chapter is selected, set that chapter's completion as true
