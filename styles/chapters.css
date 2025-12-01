@@ -131,16 +131,17 @@ body {
 /*info sticker for chapters*/
 /*basic hover functionality
 User hovers or clicks, can recieve info on a decision*/
-.infoSticker {
-    width: 200px;
-    height: 200px;
+.testSticker {
+    width: 25px;
+    height: 25px;
+    background-size: 50%;
     background-image: url(../subtabs/ch1/textanx.png);
     transition: background-image 0.5s ease-in-out;  
     margin-top: 40px;
 
 }
 
-.infoSticker:hover {
+.testSticker:hover {
     background-image: url(../subtabs/ch1/testa.png);
     
 }
