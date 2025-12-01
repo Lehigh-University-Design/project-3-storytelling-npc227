@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/chapters.css">
+    <link rel="stylesheet" href="https://use.typekit.net/yrt0kfu.css">
+    <script src="../../scripts/stresstracker.js" defer></script>
+    <title>Ch3 Page 1</title>
+</head>
+<body>
+
+    <!--Chapter selection-->
+    <a href="../chaptersel.html">
+        <h1 class="chapTitle">12/09/2024</h1>
+    </a>
+
+    <!--Page turn images-->
+    <a class="pageTurnLParent" href="../ch4start.html">
+        <img src="../../styles/images/pageturn.png" class="pageTurn">
+    </a>
+
+    <a class="pageTurnRParent" href="../ending.html" id="LASTPAGECH4">
+        <img src="../../styles/images/pageturn.png" class="pageTurn">
+    </a>
+
+    <!--Start to page's content!-->
+    <div class="chapterContent">
+        <p>
+            Finals are about to start. I have 3 coming up, and thankfully they're all spaced apart nicely. I've been
+            studying a lot, but you can never be too careful. I do need to go shopping for the holidays though, and
+            a break at the craft market sounds lovely...
+        </p>
+
+        <!--Identify this text as the one to be updated.
+        style it (for margin) based on page spacing-->
+        <p id="textD10" style="margin-top: -16px;">
+            ...
+        </p>
+        
+    </div>
+
+    <!--pencil doodle indicated decision to be made.
+    Use buttons for decisions to allow recording of decisions
+    and changing of future content based on JS var/stress level-->
+    <div class="choiceContainer">
+        <img src="../../styles/images/decisionpencil.png">
+
+        <div class="choiceContent">
+            <button id="GD10">take a break, go to the holiday market</button>
+            <button id="BD10">just keep studying, take a break later</button>
+
+        </div>
+    </div>
+    
+</body>
+</html>

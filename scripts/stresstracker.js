@@ -47,6 +47,10 @@ function updateJournalText(textKey) {
         localStorage.setItem("BD7", "I feel like I should be applying to everything possible. The more spaghetti I throw at the wall, the more will stick, right? Right? I don't want to spread myself too thin, but I NEED to do this...")
         localStorage.setItem("GD8", "If I pursue my passions, I don't know if I'll be able to support myself. But I don't want to hate my job for the next 50 years. There's probably a balance to be struck between being realistic and idealistic about it.")
         localStorage.setItem("BD8", "Sometimes I feel like I'll need to take a soul sucking but stable job. Build up my savings. I don't particularly like that idea... it makes me sad to think about.")
+        localStorage.setItem("GD9", "Setting a list of things to study or work on each day will help me make measurable progress! It's also nice because I feel SO much relief when I get to check things off. Plus it'll help me manage time by starting things earlier, so I don't burn out by the end.")
+        localStorage.setItem("BD9", "I suppose I'll study in my free time... probably go subject by subject? But I have time before finals, I can study a bit less now if I lock in a little more later.")
+        localStorage.setItem("GD10", "That was such a nice break from studying! Now I don't have to worry about shopping for my family in addition to finals!! Oh! And I saw Lila at the market and was able to treat her to coffee for her birthday! Seeing a friend was such a nice way to clear my mind.")
+        localStorage.setItem("BD10", "I completely forgot that it was Lila's birthday. She was super upset with me, since I missed her birthday to study instead. I don't think I can focus on studying if she's upset! I need to apologize...")
         localStorage.setItem("template", "smile!")
 
         console.log("updated unknown text(s)")
@@ -108,6 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
         //only set chapter complete once you have exited the page.
         ch3Finished.addEventListener('click', () => {
             localStorage.setItem("chap3Complete", "true")
+
+        })
+
+    }
+
+    const ch4Finished = document.getElementById("LASTPAGECH4")
+    if (ch4Finished) {
+
+        //only set chapter complete once you have exited the page.
+        ch4Finished.addEventListener('click', () => {
+            localStorage.setItem("chap4Complete", "true")
 
         })
 
@@ -709,6 +724,132 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec8Text = document.getElementById("textD8")
     if (dec8Text !== null) {
         dec8Text.textContent = localStorage.getItem("D8Result")
+
+    }
+
+    //DECISION 9
+    //put of studying for a bit, study in larger blocks later. Bad Decision 9 (BD9)
+    //study in shorter, more frequent, planned blocks Good Decision 9 (GD9)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    
+    const dec9Good = document.getElementById("GD9")
+    if (dec9Good !== null) {
+        dec9Good.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 9"
+            console.log("clicked GD9")
+            let result = updateJournalText("GD9")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 9's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD9 = document.getElementById("textD9")
+            textD9.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D9Result", result)
+
+        })
+    }
+
+    const dec9Bad = document.getElementById("BD9")
+    if (dec9Bad !== null) {
+        dec9Bad.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 9"
+            console.log("clicked BD9")
+            let result = updateJournalText("BD9")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 9's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD9 = document.getElementById("textD9")
+            textD9.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D9Result", result)
+
+        })
+    }  
+
+    //update the text of Decision 9 based on what decision is currently chosen
+    const dec9Text = document.getElementById("textD9")
+    if (dec9Text !== null) {
+        dec9Text.textContent = localStorage.getItem("D9Result")
+
+    }
+
+    //DECISION 10
+    //cram all day. miss Lila's birthday :( Bad Decision 10 (BD10)
+    //sTAKE A BREAK!!! Good Decision 10 (GD10)
+
+    //get decision button by it's ID, add event listener for click
+    //when clicked, update the text for that page with the result of the decision.
+    
+    const dec10Good = document.getElementById("GD10")
+    if (dec10Good !== null) {
+        dec10Good.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Good Decision 9"
+            console.log("clicked GD10")
+            let result = updateJournalText("GD10")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 1p's paragraph text accessed by ID)
+            //upon testing this was temporary - would disappear when switched pages. 
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD10 = document.getElementById("textD10")
+            textD10.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D10Result", result)
+
+        })
+    }
+
+    const dec10Bad = document.getElementById("BD10")
+    if (dec10Bad !== null) {
+        dec10Bad.addEventListener('click', () => {
+
+            //pass the button ID to updateJournalText
+            //this will return the result text for "Bad Decision 10"
+            console.log("clicked BD10")
+            let result = updateJournalText("BD10")
+            console.log(result)
+
+            //get the ID of the text to display the decision text / result
+            //by updating the text content (decision 10's paragraph text accessed by ID)
+            //add to localstorage for dynamic changing of decision result, and persistence
+            //across page changes
+            const textD10 = document.getElementById("textD10")
+            textD10.textContent = result
+
+            //add text result to localstorage so it will be updated based on
+            //which decision is currently active. will allow persistence between page changes
+            localStorage.setItem("D10Result", result)
+
+        })
+    }  
+
+    //update the text of Decision 9 based on what decision is currently chosen
+    const dec10Text = document.getElementById("textD10")
+    if (dec10Text !== null) {
+        dec10Text.textContent = localStorage.getItem("D10Result")
 
     }
 

@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/chapters.css">
+    <link rel="stylesheet" href="https://use.typekit.net/yrt0kfu.css">
+    <script src="../scripts/stresstracker.js" defer></script>
+    <title>Ch4 Initial Page</title>
 </head>
 <body>
-    <h1>ch4 temp</h1>
+
+    <!--Chapter selection-->
+    <a href="../chaptersel.html">
+        <h1 class="chapTitle">11/30/2024</h1>
+    </a>
+
+    <!--Page turn images-->
+    <a class="pageTurnLParent" href="./ch3/cpg1.html">
+        <img src="../styles/images/pageturn.png" class="pageTurn">
+    </a>
+
+    <a class="pageTurnRParent" href="./ch4/cpg1.html">
+        <img src="../styles/images/pageturn.png" class="pageTurn">
+    </a>
+
+    <!--Start to page's content!-->
+    <div class="chapterContent">
+        <p>
+            Midterm grades are finally back, and I did do well (which is a relief!!). However, finals are upon us... and
+            thus the stress makes it's comeback. I just had my last class, so there's not much left to do but study.
+        </p>
+
+        <!--Identify this text as the one to be updated.
+        style it (for margin) based on page spacing-->
+        <p id="textD9" style="margin-top: -16px;">
+            ...
+        </p>
+        
+    </div>
+
+    <!--pencil doodle indicated decision to be made.
+    Use buttons for decisions to allow recording of decisions
+    and changing of future content based on JS var/stress level-->
+    <div class="choiceContainer">
+        <img src="../../styles/images/decisionpencil.png">
+
+        <div class="choiceContent">
+            <button id="GD9">set tasks to do per day, spread them out evenly</button>
+            <button id="BD9">use all free time to study</button>
+
+        </div>
+    </div>
+    
 </body>
 </html>
