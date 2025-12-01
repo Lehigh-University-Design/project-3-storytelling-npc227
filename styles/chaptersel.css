@@ -69,3 +69,9 @@ and explanation text in chapter selection screen*/
     }
 
 }
+
+/*styling of stress meter image
+changes depending on the current stress level*/
+#stressMeter {
+    max-width: 250px;
+}

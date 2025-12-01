@@ -2,25 +2,62 @@
 //use local storage to persist across tabs/on same device
 function smallStressEvent() {
 
-    //if stress has never been added, set level to 0 for clean slate
-    if (localStorage.getItem("StressLvl") === null) {
-        localStorage.setItem("StressLvl", 0)
-    }
-
-    //get the stress level from storage, add to it. clear storage,
-    //then put the stress level back in using the same key
-    //nts:: you probably don't want to clear localstorage every time
-    //nts:: especially if you plan to use it to track story progress...
+    //get the stress level from storage, add to it.
+    //set item using the same key to replace the older iteration
     let lvl = parseInt(localStorage.getItem("StressLvl"))
-    lvl = lvl + 1
-    console.log(lvl)
+    num = lvl + 1
+    console.log(num)
     
     //the idea is that this will replace the previous iteration...
-    localStorage.setItem("StressLvl", lvl)
-    return lvl
+    localStorage.setItem("StressLvl", num)
+    return num
 }
 
-//
+//function to take away from stress
+//use local storage for access across pages
+function smallStressEventMINUS() {
+
+    //get the stress level from storage, subtract from it. 
+    //set item using the same key to replace the older iteration
+    let lvl = parseInt(localStorage.getItem("StressLvl"))
+    num = lvl - 1
+    console.log(num)
+    
+    //the idea is that this will replace the previous iteration...
+    localStorage.setItem("StressLvl", num)
+    return num
+}
+
+//the following 2 stress functions are for more impactful decisions
+//function to add to stress factor
+//use local storage to persist across tabs/on same device
+function largeStressEvent() {
+
+    //get the stress level from storage, add to it.
+    //set item using the same key to replace the older iteration
+    let lvl = parseInt(localStorage.getItem("StressLvl"))
+    num = lvl + 3
+    console.log(num)
+    
+    //the idea is that this will replace the previous iteration...
+    localStorage.setItem("StressLvl", num)
+    return num
+}
+
+//function to take away from stress
+//use local storage for access across pages
+function largeStressEventMINUS() {
+
+    //get the stress level from storage, subtract from it. 
+    //set item using the same key to replace the older iteration
+    let lvl = parseInt(localStorage.getItem("StressLvl"))
+    num = lvl - 3
+    console.log(num)
+    
+    //the idea is that this will replace the previous iteration...
+    localStorage.setItem("StressLvl", num)
+    return num
+}
 
 //Function to update html text based on decisions made. 
 //keep decision text in localstorage so it can be updated whenever needed!
@@ -69,6 +106,11 @@ function updateJournalText(textKey) {
 document.addEventListener('DOMContentLoaded', () => {
 
     console.log("test")
+
+    //set stress level = 0 if it doesn't exist yet.
+    if (localStorage.getItem("StressLvl") === null) {
+        localStorage.setItem("StressLvl", 0)
+    }
 
     //include eraser on chapter selection screen. allows you to reset choices.
     const eraser = document.getElementById("resetChoices")
@@ -170,11 +212,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //TESTING 
     //if content loaded, update stress level if found
-    /*
-    console.log(localStorage.getItem("StressLvl"))
-    let tempNum = localStorage.getItem("StressLvl")
-    document.getElementById("stressLevel").innerHTML = parseInt(localStorage.getItem("StressLvl"))
 
+    /*depending on stress level, changes emoji that displays on chapter selection screen*/
+    const stressMeter = document.getElementById("stressMeter")
+    if(stressMeter) {
+
+        let num = localStorage.getItem("StressLvl")
+
+        if (num < -3) {
+            stressMeter.src = "yipee.png"
+
+        } else if (-3 <= num <= 3 ) {
+            stressMeter.src = "A-Ok.png"
+            
+        } else if (num > 3) {
+            stressMeter.src = "urgh.png"
+
+        }
+
+    }
+
+    /*
     const btnSmallStress = document.getElementById('B1')
 
     btnSmallStress.addEventListener('click', () => {
@@ -218,6 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D1Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -241,6 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D1Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
 
         })
     }  
@@ -280,6 +346,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D2Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -303,6 +373,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D2Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
 
         })
     }
@@ -342,6 +416,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D2Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -365,6 +443,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D3Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
 
         })
     }
@@ -405,6 +487,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D4Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -428,6 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D4Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
 
         })
     }  
@@ -468,6 +558,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D5Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
 
         })
     }
@@ -517,6 +611,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D5Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
+
         })
     }
 
@@ -556,6 +654,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D6Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = largeStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -579,6 +681,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D6Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = largeStressEvent()
+            console.log(tempLvl)
 
         })
     }  
@@ -619,6 +725,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D7Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
 
         })
     }
@@ -668,6 +778,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D7Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
+
         })
     }
 
@@ -707,6 +821,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D8Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = largeStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -730,6 +848,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D8Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = largeStressEvent()
+            console.log(tempLvl)
 
         })
     }  
@@ -770,6 +892,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D9Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -793,6 +919,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //add text result to localstorage so it will be updated based on
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D9Result", result)
+
+            //assign the appropriate amount of stress
+            let tempLvl = smallStressEvent()
+            console.log(tempLvl)
 
         })
     }  
@@ -833,6 +963,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D10Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = largeStressEventMINUS()
+            console.log(tempLvl)
+
         })
     }
 
@@ -857,10 +991,14 @@ document.addEventListener('DOMContentLoaded', () => {
             //which decision is currently active. will allow persistence between page changes
             localStorage.setItem("D10Result", result)
 
+            //assign the appropriate amount of stress
+            let tempLvl = largeStressEvent()
+            console.log(tempLvl)
+
         })
     }  
 
-    //update the text of Decision 9 based on what decision is currently chosen
+    //update the text of Decision 10 based on what decision is currently chosen
     const dec10Text = document.getElementById("textD10")
     if (dec10Text !== null) {
         dec10Text.textContent = localStorage.getItem("D10Result")
