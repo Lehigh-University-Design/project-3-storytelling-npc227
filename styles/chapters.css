@@ -127,3 +127,59 @@ body {
     margin-top: 45px;
 
 }
+
+/*info sticker for chapters*/
+/*basic hover functionality
+User hovers or clicks, can recieve info on a decision*/
+.infoSticker {
+    width: 200px;
+    height: 200px;
+    background-image: url(../subtabs/ch1/textanx.png);
+    transition: background-image 0.5s ease-in-out;  
+    margin-top: 40px;
+
+}
+
+.infoSticker:hover {
+    background-image: url(../subtabs/ch1/testa.png);
+    
+}
+
+.calSticker {
+    width: 200px;
+    height: 200px;
+    background-image: url(../subtabs/ch1/BDAY.png);
+    transition: background-image 0.5s ease-in-out;  
+
+}
+
+.calSticker:hover {
+    background-image: url(../subtabs/ch1/cal.png);
+    
+}
+
+.sleepSticker {
+    width: 200px;
+    height: 200px;
+    background-image: url(../subtabs/ch2/sleepytime.png);
+    transition: background-image 0.5s ease-in-out;  
+
+}
+
+.sleepSticker:hover {
+    background-image: url(../subtabs/ch2/bed.png)
+    
+}
+
+.scaleSticker {
+    width: 200px;
+    height: 200px;
+    background-image: url(../subtabs/ch3/decision.png);
+    transition: background-image 0.5s ease-in-out;  
+
+}
+
+.scaleSticker:hover {
+    background-image: url(../subtabs/ch3/scale.png);
+    
+}
