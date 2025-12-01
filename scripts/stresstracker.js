@@ -102,7 +102,6 @@ function updateJournalText(textKey) {
 
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
 
     console.log("test")
@@ -230,6 +229,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
 
+    }
+
+    //if you are on the ending page, render the ending text
+    let num = localStorage.getItem("StressLvl")
+
+    if (localStorage.getItem("BD10Chosen") === "true") {
+        localStorage.setItem("ending", "The friend was Lila. We made up! I had a bit of a volatile semester, so I was glad to make up with her. Something I definitely learned was to communicate with the people around me to show that I care, to clear misunderstandings, and foster more stress-free relationships. I also learned that I need to spread work out over a longer time period to minimize stress close to deadlines, as well as study more efficiently.")
+
+    } else if (num < -3) {
+        localStorage.setItem("ending", "Lila and I were talking. I didn't see her a ton this semester, but I was so glad to see her on her birthday. We were talking about stress, and we compiled a few general tips that are very fair. One: spend time on your hobbies and your work, don't burn yourself out. 2: Communication with people is key to avoiding misunderstandings and repairing relationships. 3: Try not to worry about things you can't control, and focus your energy on something that is fulfilling for you.")
+
+    } else if (-3 <= num <= 3 ) {
+        localStorage.setItem("ending", "We didn't see each other much over the course of the semester. We chatted though, and found that we both had a fairly average semester. We came up with some general tips for dealing with that stress, though! One: spend time on your hobbies and your work, don't burn yourself out. 2: Communication with people is key to avoiding misunderstandings and repairing relationships. 3: Try not to worry about things you can't control, and focus your energy on something that is fulfilling for you.")
+        
+    } else if (num > 3) {
+        localStorage.setItem("ending", "We both had a really rough semester. Some ways to deal with semester stress are to talk to a licensed professional, or your friends! It's good to get things off of your chest. Also be sure to get plenty of sleep and spend time doing things you love. Being happy and well-rested reduces overall stress levels! And this may sound difficult to do, but it's very important to remember: you are more than your academic performance. You matter! ")
+
+    }
+
+    const ending = document.getElementById("endText")
+    if (ending) {
+        ending.textContent = localStorage.getItem("ending")
     }
 
     /*
@@ -994,6 +1015,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //assign the appropriate amount of stress
             let tempLvl = largeStressEvent()
             console.log(tempLvl)
+
+            //set that you chose bad decision 10 to true to
+            //see the ending where you and lila make up
+            localStorage.setItem("BD10Chosen", "true")
 
         })
     }  
