@@ -136,55 +136,34 @@ User hovers or clicks, can recieve info on a decision*/
     width: 25px;
     height: 25px;
     background-size: 50%;
-    background-image: url(../subtabs/ch1/textanx.png);
+    background-image: url(../subtabs/textanx.png);
     transition: background-image 0.5s ease-in-out;  
     margin-top: 40px;
 
 }
 
-.testSticker:hover {
-    background-image: url(../subtabs/ch1/testa.png);
-    
-}
-
 .calSticker {
     width: 200px;
     height: 200px;
-    background-image: url(../subtabs/ch1/BDAY.png);
+    background-image: url(./BDAY.png);
     transition: background-image 0.5s ease-in-out;  
 
-}
-
-.calSticker:hover {
-    background-image: url(../subtabs/ch1/cal.png);
-    
 }
 
 .sleepSticker {
     width: 200px;
     height: 200px;
-    background-image: url(../subtabs/ch2/sleepytime.png);
+    background-image: url(./sleepytime.png);
     transition: background-image 0.5s ease-in-out; 
     margin-top: 50px; 
     margin-left: 100px;
 
 }
 
-.sleepSticker:hover {
-    background-image: url(../subtabs/ch2/bed.png)
-
-    
-}
-
 .scaleSticker {
     width: 200px;
     height: 200px;
-    background-image: url(../subtabs/ch3/decision.png);
+    background-image: url(./decision.png);
     transition: background-image 0.5s ease-in-out;  
 
-}
-
-.scaleSticker:hover {
-    background-image: url(../subtabs/ch3/scale.png);
-    
 }

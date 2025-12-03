@@ -72,8 +72,8 @@ function updateJournalText(textKey) {
         localStorage.setItem("BD1", "I crammed all day. Well, not all day because I ended up on Instagram during my breaks... (which took way too long). I feel worse than when I started honestly, which is especially bad since it's already late at night so now I'm tired AND stressed...")
         localStorage.setItem("GD2", "I definitely could have done better if I had remembered about the quiz beforehand. But I was able to pay attention to the new material in class, so the next quiz will go better... that's good at least.")
         localStorage.setItem("BD2", "I couldn't focus on cramming since the professor was teaching new material. That quiz was literally the worst... I just want to go take a nap.")
-        localStorage.setItem("GD3", "Ultimately I decided to go since I haven't seen these friends in a hot minute. It was nice to catch up with them, even if I didn't stay for long. Lila mentioned her birthday was coming up (12/09), so that's something to look forward to! I'm definitely feeling a lot better.")
-        localStorage.setItem("BD3", "I didn't end up going and stayed in to study. It was genuinely such a lonely night, I don't have much to write about... but Lila mentioned her birthday was on (12/09)... I need to finish this break and get back to studying. It's already so late and I'm so tired...")
+        localStorage.setItem("GD3", "Ultimately I decided to go since I haven't seen these friends in a hot minute. It was nice to catch up with them. Lila mentioned her birthday was coming up (12/09), so that's something to look forward to! I'm definitely feeling a lot better after that.")
+        localStorage.setItem("BD3", "I didn't end up going and stayed in to study. I don't have much to write about... Oh! Lila texted that her birthday was on (12/09)... I need to stop writing now. It's already so late...")
         localStorage.setItem("GD4", "I ended up spending most of the day at a cafe with friends. We were studying and chatting, which was honestly nice. Being able to work with them helped me get my work done (so I feel a lot better), but we did goof off... quite a bit.")
         localStorage.setItem("BD4", "I ended up spending most of the day with friends, going to a movie, and then to my favorite restaurant. Admittedly I did push a lot of my work back and am now on a bit of a time crunch... but it was a good mental reset. Even if I'm a little stressed right now.")
         localStorage.setItem("GD5", "I ended up being busy... but in a good way. Knowing that I was able to get some work done makes me feel less guilty about having fun! (It also helps that I was actually sleeping consistently...)")
@@ -103,6 +103,92 @@ function updateJournalText(textKey) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    //img sticker listeners
+    //gets each sticker from it's id
+    //if it exists on a page and contains a given url,
+    //toggle it to flip to the back of the sticker on click
+    //and return on a different click
+    const sticker1 = document.getElementById("img1")
+    if (sticker1) {
+
+        sticker1.addEventListener('click', () => {
+            toggleSticker1()
+
+        })
+    
+    }
+    function toggleSticker1() {
+        if (sticker1.src.includes("textanx.png")) {
+            sticker1.src = "./testa.png"
+
+        } else {
+            sticker1.src = "./textanx.png"
+
+        }
+
+    }
+
+    const sticker2 = document.getElementById("img2")
+    if (sticker2) {
+
+        sticker2.addEventListener('click', () => {
+            toggleSticker2()
+
+        })
+    
+    }
+    function toggleSticker2() {
+        if (sticker2.src.includes("BDAY.png")) {
+            sticker2.src = "../cal.png"
+
+        } else {
+            sticker2.src = "../BDAY.png"
+
+        }
+
+    }
+
+    const sticker3 = document.getElementById("img3")
+    if (sticker3) {
+
+        sticker3.addEventListener('click', () => {
+            toggleSticker3()
+
+        })
+    
+    }
+    function toggleSticker3() {
+        if (sticker3.src.includes("sleepytime.png")) {
+            sticker3.src = "../bed.png"
+
+        } else {
+            sticker3.src = "../sleepytime.png"
+
+        }
+
+    }
+
+    const sticker4 = document.getElementById("img4")
+    if (sticker4) {
+
+        sticker4.addEventListener('click', () => {
+            toggleSticker4()
+
+        })
+    
+    }
+    function toggleSticker4() {
+        if (sticker4.src.includes("decision.png")) {
+            sticker4.src = "../scale.png"
+
+        } else {
+            sticker4.src = "../decision.png"
+
+        }
+
+    }
+
 
     console.log("test")
 
@@ -392,6 +478,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec2Good !== null) {
         dec2Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec2Made") === "true") {
+                return
+
+            }
+            //dec2Made = true
+            localStorage.setItem("dec2Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 2"
             console.log("clicked GD2")
@@ -420,6 +515,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec2Bad = document.getElementById("BD2")
     if (dec2Bad !== null) {
         dec2Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec2Made") === "true") {
+                return
+
+            }
+            //dec2Made = true
+            localStorage.setItem("dec2Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 2"
@@ -462,6 +566,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec3Good !== null) {
         dec3Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec3Made") === "true") {
+                return
+
+            }
+            //dec3Made = true
+            localStorage.setItem("dec3Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 3"
             console.log("clicked GD3")
@@ -490,6 +603,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec3Bad = document.getElementById("BD3")
     if (dec3Bad !== null) {
         dec3Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec3Made") === "true") {
+                return
+
+            }
+            //dec3Made = true
+            localStorage.setItem("dec3Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 3"
@@ -533,6 +655,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec4Good !== null) {
         dec4Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec4Made") === "true") {
+                return
+
+            }
+            //dec4Made = true
+            localStorage.setItem("dec4Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 4"
             console.log("clicked GD4")
@@ -561,6 +692,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec4Bad = document.getElementById("BD4")
     if (dec4Bad !== null) {
         dec4Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec4Made") === "true") {
+                return
+
+            }
+            //dec4Made = true
+            localStorage.setItem("dec4Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 4"
@@ -605,6 +745,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec5Good !== null) {
         dec5Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec5Made") === "true") {
+                return
+
+            }
+            //dec5Made = true
+            localStorage.setItem("dec5Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 5"
             console.log("clicked GD5")
@@ -634,6 +783,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec5Neutral !== null) {
         dec5Neutral.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec5Made") === "true") {
+                return
+
+            }
+            //dec5Made = true
+            localStorage.setItem("dec5Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 5"
             console.log("clicked ND5")
@@ -657,6 +815,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec5Bad = document.getElementById("BD5")
     if (dec5Bad !== null) {
         dec5Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec5Made") === "true") {
+                return
+
+            }
+            //dec5Made = true
+            localStorage.setItem("dec5Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 5"
@@ -700,6 +867,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec6Good !== null) {
         dec6Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec6Made") === "true") {
+                return
+
+            }
+            //dec6Made = true
+            localStorage.setItem("dec6Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 6"
             console.log("clicked GD6")
@@ -728,6 +904,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec6Bad = document.getElementById("BD6")
     if (dec6Bad !== null) {
         dec6Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec6Made") === "true") {
+                return
+
+            }
+            //dec6Made = true
+            localStorage.setItem("dec6Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 6"
@@ -772,6 +957,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec7Good !== null) {
         dec7Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec7Made") === "true") {
+                return
+
+            }
+            //dec7Made = true
+            localStorage.setItem("dec7Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 7"
             console.log("clicked GD7")
@@ -801,6 +995,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec7Neutral !== null) {
         dec7Neutral.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec7Made") === "true") {
+                return
+
+            }
+            //dec7Made = true
+            localStorage.setItem("dec7Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 7"
             console.log("clicked ND7")
@@ -824,6 +1027,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec7Bad = document.getElementById("BD7")
     if (dec7Bad !== null) {
         dec7Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec7Made") === "true") {
+                return
+
+            }
+            //dec7Made = true
+            localStorage.setItem("dec7Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 7"
@@ -867,6 +1079,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec8Good !== null) {
         dec8Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec8Made") === "true") {
+                return
+
+            }
+            //dec8Made = true
+            localStorage.setItem("dec8Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 8"
             console.log("clicked GD8")
@@ -895,6 +1116,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec8Bad = document.getElementById("BD8")
     if (dec8Bad !== null) {
         dec8Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec8Made") === "true") {
+                return
+
+            }
+            //dec8Made = true
+            localStorage.setItem("dec8Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 8"
@@ -938,6 +1168,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec9Good !== null) {
         dec9Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec9Made") === "true") {
+                return
+
+            }
+            //dec9Made = true
+            localStorage.setItem("dec9Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 9"
             console.log("clicked GD9")
@@ -966,6 +1205,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec9Bad = document.getElementById("BD9")
     if (dec9Bad !== null) {
         dec9Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec9Made") === "true") {
+                return
+
+            }
+            //dec9Made = true
+            localStorage.setItem("dec9Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 9"
@@ -1009,6 +1257,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dec10Good !== null) {
         dec10Good.addEventListener('click', () => {
 
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec10Made") === "true") {
+                return
+
+            }
+            //dec10Made = true
+            localStorage.setItem("dec10Made", "true")
+
             //pass the button ID to updateJournalText
             //this will return the result text for "Good Decision 9"
             console.log("clicked GD10")
@@ -1037,6 +1294,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dec10Bad = document.getElementById("BD10")
     if (dec10Bad !== null) {
         dec10Bad.addEventListener('click', () => {
+
+            //check to see if the decision has already been made.
+            //if it has not yet been made, then continue on.
+            if (localStorage.getItem("dec10Made") === "true") {
+                return
+
+            }
+            //dec10Made = true
+            localStorage.setItem("dec10Made", "true")
 
             //pass the button ID to updateJournalText
             //this will return the result text for "Bad Decision 10"
